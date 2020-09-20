@@ -10,26 +10,25 @@
 
 template <typename T> class ScopedArray {
 public:
-
     /**
-    * @brief Overloaded bool operator
-    * @details Overloaded bool operator
-    * @author  Nishant Jain
-    */
+     * @brief Overloaded bool operator
+     * @details Overloaded bool operator
+     * @author  Nishant Jain
+     */
     explicit operator bool() const;
 
     /**
-    * @brief Const [] operator
-    * @details Overloaded const [] operator
-    * @author  Nishant Jain
-    */
+     * @brief Const [] operator
+     * @details Overloaded const [] operator
+     * @author  Nishant Jain
+     */
     const T& operator[](std::size_t position) const;
 
     /**
-    * @brief Non-Const [] operator
-    * @details Overloaded non-const [] operator
-    * @author  Nishant Jain
-    */
+     * @brief Non-Const [] operator
+     * @details Overloaded non-const [] operator
+     * @author  Nishant Jain
+     */
     T& operator[](std::size_t position);
 
     /**
@@ -54,7 +53,7 @@ public:
     const ScopedArray<T>& operator=(ScopedArray<T>& array) = delete;
 
     /**
-     * @brief   Deallocates memory for the ScopedAray object.
+     * @brief   Deallocates memory for the ScopedArray object.
      * @details Destructor
      * @author  Nishant Jain
      * @pre: ScopedArray object exists.
@@ -102,8 +101,8 @@ public:
      * @brief   Releases the dynamic memory allocated by a SimpleArray object
      * @details release()
      * @author  Nishant Jain
-     * @pre: SimpleArray object is not released
-     * @post: SimpleArray memory is released.
+     * @pre: ScopedArray object is not released
+     * @post: ScopedArray memory is released.
      */
     T* release();
 

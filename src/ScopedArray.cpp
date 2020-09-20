@@ -4,21 +4,19 @@
 
 #ifndef SCOPEDARRAY_CPP
 #define SCOPEDARRAY_CPP
-#include "ScopedArray.h"
 
-template <typename T>
-ScopedArray<T>::operator bool() const
+template <typename T> ScopedArray<T>::operator bool() const
 {
     return mArray != nullptr;
 }
 
-template <typename T>
-const T& ScopedArray<T> :: operator[](size_t position) const{
+template <typename T> const T& ScopedArray<T>::operator[](size_t position) const
+{
     return mArray[position];
 }
 
-template <typename T>
-T& ScopedArray<T> :: operator[](std::size_t position){
+template <typename T> T& ScopedArray<T>::operator[](std::size_t position)
+{
     return mArray[position];
 }
 
@@ -81,7 +79,7 @@ template <typename T> void ScopedArray<T>::reset(T* array)
  */
 template <typename T> void ScopedArray<T>::swap(ScopedArray<T>& rhs)
 {
-    std :: swap(mArray, rhs.mArray);
+    std ::swap(mArray, rhs.mArray);
 }
 
 /**
