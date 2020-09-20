@@ -4,8 +4,10 @@
 
 #ifndef SCOPEDARRAY_CPP
 #define SCOPEDARRAY_CPP
+#include "ScopedArray.h"
 
-template <typename T> ScopedArray<T>::operator bool() const
+template <typename T>
+ScopedArray<T>::operator bool() const
 {
     return mArray != nullptr;
 }
@@ -64,8 +66,10 @@ template <typename T> T* ScopedArray<T>::get() const
  */
 template <typename T> void ScopedArray<T>::reset(T* array)
 {
-    delete mArray;
-    mArray = array;
+    if (this->mArray != array) {
+        delete[] mArray;
+        mArray = array;
+    }
 }
 
 /**

@@ -10,17 +10,36 @@
 
 template <typename T> class ScopedArray {
 public:
-    operator bool() const;
+
+    /**
+    * @brief Overloaded bool operator
+    * @details Overloaded bool operator
+    * @author  Nishant Jain
+    */
+    explicit operator bool() const;
+
+    /**
+    * @brief Const [] operator
+    * @details Overloaded const [] operator
+    * @author  Nishant Jain
+    */
     const T& operator[](std::size_t position) const;
+
+    /**
+    * @brief Non-Const [] operator
+    * @details Overloaded non-const [] operator
+    * @author  Nishant Jain
+    */
     T& operator[](std::size_t position);
-    /*
-     * @brief   Creates a new SimpleArray object with an AllocationTracker pointer as a param
+
+    /**
+     * @brief   Creates a new ScopedArray object
      * @details Overloaded constructor
      * @author  Nishant Jain
      */
     explicit ScopedArray(T* arrayPtr = nullptr);
 
-    /*
+    /**
      * @brief   Creates a new ScopedArray object through another ScopedArray object.
      * @details Copy constructor
      * @author  Nishant Jain
@@ -28,36 +47,36 @@ public:
     ScopedArray(const ScopedArray<T>& rhs) = delete;
 
     /**
-     * @brief   Creates a new SimpleArray object through assignment of another SimpleArray object.
+     * @brief   Creates a new ScopedArray object through assignment of another ScopedArray object.
      * @details Assignment operator
      * @author  Nishant Jain
      */
     const ScopedArray<T>& operator=(ScopedArray<T>& array) = delete;
 
     /**
-     * @brief   Deallocates memory for the SimpleArray object.
+     * @brief   Deallocates memory for the ScopedAray object.
      * @details Destructor
      * @author  Nishant Jain
-     * @pre: SimpleArray object exists.
-     * @post: SimpleArray object is destroyed.
+     * @pre: ScopedArray object exists.
+     * @post: ScopedArray object is destroyed.
      */
     ~ScopedArray();
 
     /**
-     * @brief   Returns the mArray AllocationTracker object for a SimpleArray
-     * @details get() returns a pointer to an Allocation Tracker
+     * @brief   Returns the mArray object for a ScopedArray
+     * @details get() returns a pointer to the mArray for the ScopedArray object
      * @author  Nishant Jain
      * @pre: None
-     * @post: AllocatioNTracker pointer of the SimpleArray is returned
+     * @post: Pointer to the memory occupied by ScopedArray is returned
      */
     T* get() const;
 
     /**
-     * @brief   Resets the mArray pointer for a SimpleArray object to another object
+     * @brief   Resets the mArray pointer for a ScopedAray object to another object
      * @details Overloaded reset() resets the mArray pointer to the array param.
      * @author  Nishant Jain
      * @pre: The ScopedArray object is not reset.
-     * @post: The SimpleArray object is reset to point to the new AllocationTracker.
+     * @post: The ScopedArray object is reset to point to the new data.
      */
     void reset(T* array = nullptr);
 
@@ -66,7 +85,7 @@ public:
      * @details isNonNull() returns true or false to see if mArray points to nullptr.
      * @author  Nishant Jain
      * @pre: none
-     * @post: returns true or false depending on if SimpleArray mArray is nullptr.
+     * @post: returns true or false depending on if ScopedArray is nullptr.
      */
     bool isNonNull(ScopedArray<T> array = nullptr) const;
 
@@ -74,8 +93,8 @@ public:
      * @brief   Swaps the data fields for two SimpleArray objects.
      * @details swap()
      * @author  Nishant Jain
-     * @pre: Two SimpleArray objects are not swapped.
-     * @post: Two SimpleArray objects are swapped.
+     * @pre: Two ScopedArray objects are not swapped.
+     * @post: Two ScopedArray objects are swapped.
      */
     void swap(ScopedArray<T>&);
 
