@@ -1,9 +1,15 @@
-//
-// Created by Nishant Jain on 9/19/20.
-//
-
-#ifndef ASSIGNMENT2_SOLUTION_SCOPEDARRAY_H
-#define ASSIGNMENT2_SOLUTION_SCOPEDARRAY_H
+// File name: ScopedArray.h
+// Author: Nishant Jain
+// VUnetID: jainn6
+// Email: nishant.jain@vanderbilt.edu
+// Class: CS3251
+// Assignment Number: 2
+// Description: This template class defines a ScopedArray object of any data type.
+// Honor statement: I attest that I understand the honor code for this class and have neither given
+// nor received any unauthorized aid on this assignment.
+// Last Changed: 9/20/20
+#ifndef SCOPEDARRAY_H
+#define SCOPEDARRAY_H
 
 // Just include the special AllocationTracker class
 #include "AllocationTracker.h"
@@ -71,7 +77,7 @@ public:
     T* get() const;
 
     /**
-     * @brief   Resets the mArray pointer for a ScopedAray object to another object
+     * @brief   Resets the mArray pointer for a ScopedArray object to another object
      * @details Overloaded reset() resets the mArray pointer to the array param.
      * @author  Nishant Jain
      * @pre: The ScopedArray object is not reset.
@@ -80,16 +86,7 @@ public:
     void reset(T* array = nullptr);
 
     /**
-     * @brief   Checks to see if the mArray is null or not.
-     * @details isNonNull() returns true or false to see if mArray points to nullptr.
-     * @author  Nishant Jain
-     * @pre: none
-     * @post: returns true or false depending on if ScopedArray is nullptr.
-     */
-    bool isNonNull(ScopedArray<T> array = nullptr) const;
-
-    /**
-     * @brief   Swaps the data fields for two SimpleArray objects.
+     * @brief   Swaps the data fields for two ScopedArray objects.
      * @details swap()
      * @author  Nishant Jain
      * @pre: Two ScopedArray objects are not swapped.
@@ -110,5 +107,5 @@ private:
     T* mArray;
 };
 
-#endif // ASSIGNMENT2_SOLUTION_SCOPEDARRAY_H
 #include "../src/ScopedArray.cpp"
+#endif // SCOPEDARRAY_H
